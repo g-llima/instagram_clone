@@ -1,0 +1,32 @@
+.app__header {
+  background-color: white;
+  object-fit: contain;
+  padding: 12px;
+  border-bottom: 1px solid #dbdbdb;
+  top: 0;
+  position: sticky;
+}
+.app__header__content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 940px;
+  margin: 0 auto;
+}
+.app__headerImage {
+  width: 110px;
+}
+.app__header__authBtn__Login {
+  text-transform: capitalize !important;
+  padding: 2px 0px !important;
+  background-color: #0095f6 !important;
+  font-family: San Francisco !important;
+  font-weight: bold !important;
+  box-shadow: none !important;
+}
+.app__header__authBtn__Signup {
+  text-transform: capitalize !important;
+  color: #0095f6 !important;
+  font-family: San Francisco !important;
+  font-weight: bold !important;
+  margin-left: 0.4rem !important;
+}
