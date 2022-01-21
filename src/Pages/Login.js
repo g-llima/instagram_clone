@@ -5,10 +5,9 @@ function Login() {
   return (
     <div>
       <AuthComponent
-        btnText="Login"
+        btnText="Entrar"
         hasUsername={false}
         linkTo="/accounts/signup"
-        bottomBtnText="Sign up"
         isLogin={true}
       />
     </div>

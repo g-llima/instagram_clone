@@ -5,6 +5,7 @@
   border-bottom: 1px solid #dbdbdb;
   top: 0;
   position: sticky;
+  z-index: 2;
 }
 .app__header__content {
   display: flex;
@@ -14,6 +15,19 @@
 }
 .app__headerImage {
   width: 110px;
+}
+.app__header__avatar__icon {
+  transform: scale(0.7);
+  cursor: pointer;
+}
+.app__header__rightContent {
+  display: flex;
+  align-items: center;
+}
+.app__header__rightContent__newPost {
+  transform: scale(1.1);
+  margin-right: 2rem;
+  cursor: pointer;
 }
 .app__header__authBtn__Login {
   text-transform: capitalize !important;
@@ -29,4 +43,29 @@
   font-family: San Francisco !important;
   font-weight: bold !important;
   margin-left: 0.4rem !important;
+}
+.app__header__avatar__menu {
+  position: absolute;
+  width: 200px;
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #dbdbdb;
+}
+.app__header__avatar__menu__username {
+  font-size: 14px;
+  padding: 10px;
+  border-bottom: 1px solid #dbdbdb;
+  color: #262626;
+}
+.app__header__avatar__menu__logoutBtn {
+  background: none;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+}
+.app__header__avatar__menu__logoutBtn:hover {
+  background-color: rgb(250, 250, 250);
 }

@@ -5,9 +5,8 @@ function SignUp() {
   return (
     <div>
       <AuthComponent
-        btnText="Sign Up"
+        btnText="Cadastre-se"
         linkTo="/accounts/login"
-        bottomBtnText="Login"
         isLogin={false}
       />
     </div>

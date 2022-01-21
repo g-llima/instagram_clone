@@ -15,7 +15,7 @@ function Post({ username, user, usernameAvatar, caption, mediaUrl, postId }) {
         .collection("posts")
         .doc(postId)
         .collection("comments")
-        .orderBy("timestamp", "desc")
+        .orderBy("timestamp", "asc")
         .onSnapshot((snapshot) => {
           setComments(snapshot.docs.map((doc) => doc.data()));
         });
@@ -44,13 +44,14 @@ function Post({ username, user, usernameAvatar, caption, mediaUrl, postId }) {
       </div>
 
       <img className="post__image" src={mediaUrl} />
+
       <h4 className="post__text">
         <strong>{username}</strong> {caption}
       </h4>
 
       <div className="post__comments">
-        {comments.map((comment) => (
-          <p>
+        {comments.map((comment, key) => (
+          <p key={key}>
             <strong>{comment.username} </strong>
             {comment.text}
           </p>
@@ -62,7 +63,7 @@ function Post({ username, user, usernameAvatar, caption, mediaUrl, postId }) {
           <input
             className="post__input"
             type="text"
-            placeholder="Add a comment..."
+            placeholder="Adicione um comentário..."
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
@@ -72,7 +73,7 @@ function Post({ username, user, usernameAvatar, caption, mediaUrl, postId }) {
             type="submit"
             onClick={postComment}
           >
-            Post
+            Postar
           </button>
         </form>
       )}
