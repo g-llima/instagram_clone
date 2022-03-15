@@ -5,13 +5,7 @@ import { auth } from "../firebaseDB/firebase";
 import "../components/styles/AuthForm.css";
 import Alert from "@mui/material/Alert";
 
-function AuthComponent({
-  isLogin,
-  btnText,
-  hasUsername = true,
-  linkTo = "/",
-  bottomBtnText,
-}) {
+function AuthComponent({ isLogin, btnText, hasUsername = true, linkTo = "/" }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -35,7 +29,7 @@ function AuthComponent({
     auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        window.location.href = "http://localhost:3000";
+        window.location.href = process.env.REACT_APP_PAGE_URL;
       })
       .catch((error) => {
         switch (error.code) {
@@ -87,7 +81,7 @@ function AuthComponent({
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((authUser) => {
-        window.location.href = "http://localhost:3000";
+        window.location.href = process.env.REACT_APP_PAGE_URL;
         return authUser.user.updateProfile({
           displayName: userWithoutSpaces,
         });
