@@ -32,6 +32,8 @@ function Header() {
     };
   }, [user, username]);
 
+  console.log(user);
+
   return (
     <div className="app__header">
       <div className="app__header__content">

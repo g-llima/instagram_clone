@@ -4,6 +4,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import { auth } from "../firebaseDB/firebase";
 import "../components/styles/AuthForm.css";
 import Alert from "@mui/material/Alert";
+import { useNavigate } from "react-router-dom";
 
 function AuthComponent({ isLogin, btnText, hasUsername = true, linkTo = "/" }) {
   const [username, setUsername] = useState("");
@@ -19,8 +20,10 @@ function AuthComponent({ isLogin, btnText, hasUsername = true, linkTo = "/" }) {
   let userWithoutSpaces = username.trim();
   let passWithoutSpaces = password.trim();
 
+  const navigate = useNavigate();
+
   const login = () => {
-    if (userWithoutSpaces.length == 0 && !isLogin) {
+    if (userWithoutSpaces.length === 0 && !isLogin) {
       setErrorMsg("Nome do usuário inválido");
       setErrorOpen("true");
       setErrorUser(true);
@@ -29,7 +32,7 @@ function AuthComponent({ isLogin, btnText, hasUsername = true, linkTo = "/" }) {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        window.location.href = process.env.REACT_APP_PAGE_URL;
+        navigate("/");
       })
       .catch((error) => {
         switch (error.code) {
@@ -60,13 +63,13 @@ function AuthComponent({ isLogin, btnText, hasUsername = true, linkTo = "/" }) {
   };
 
   const signUp = () => {
-    if (userWithoutSpaces.length == 0) {
+    if (userWithoutSpaces.length === 0) {
       setErrorMsg("Nome do usuário inválido");
       setErrorOpen("true");
       setErrorUser(true);
       return;
     }
-    if (passWithoutSpaces.length == 0) {
+    if (passWithoutSpaces.length === 0) {
       setErrorMsg("Senha inválida");
       setErrorOpen("true");
       setErrorPass(true);
@@ -81,10 +84,12 @@ function AuthComponent({ isLogin, btnText, hasUsername = true, linkTo = "/" }) {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((authUser) => {
-        window.location.href = process.env.REACT_APP_PAGE_URL;
         return authUser.user.updateProfile({
           displayName: userWithoutSpaces,
         });
+      })
+      .then(() => {
+        navigate("/");
       })
       .catch((error) => {
         switch (error.code) {
