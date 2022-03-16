@@ -155,7 +155,7 @@ export default function ModalBase({ openModal, closeModal, username }) {
             </div>
             <div className="modal__content__active__body">
               <div className="modal__content__active__bodyImg__imgPreview">
-                <img src={imgPreviewSrc} id="imgPreview" />
+                <img src={imgPreviewSrc} id="imgPreview" alt={username} />
               </div>
               <div className="modal__content__active__sideInfo">
                 <div className="modal__content__active__sideInfo__user">
