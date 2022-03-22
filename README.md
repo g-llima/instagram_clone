@@ -28,6 +28,10 @@ Setting up your project locally.
    npm install
    ```
 5. Change the config object in **firebase.js** file with your own firebase project config
+6. Run the project
+   ```sh
+   npm start
+   ```
 
 ### Preview
 
