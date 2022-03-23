@@ -1,6 +1,6 @@
 # Instagram Clone
 
-Project with the basic features of Instagram.
+Project with the basics features of Instagram.
 
 ## Getting Started
 
